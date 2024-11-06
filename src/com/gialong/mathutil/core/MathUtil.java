@@ -22,16 +22,30 @@ public class MathUtil {
     //20 giai thừa 18 con số 0, vừa kịp đủ cho kiểu long của Java
     //21 giai thừa tràn kiểu long
     //bài này quy ước tính n! trong khoảng từ 0-20
+//    public static long getFactorial(int n){
+//        if(n < 0 || n > 20)
+//            throw new IllegalArgumentException("Invalid argument. N must be between 0 and 20");
+//                    
+//        if(n==0 || n==1)
+//            return 1; //kết thúc sớm nếu nhận những đầu vào đặc biệt
+//        
+//        long product = 1; //tích nhân dồn
+//        for (int i=2; i<=n; i++)
+//            product *= i;
+//        return product;
+//    }
+    
+    
+    //công thức giai thừa n! = n * (n - 1)!
+    
     public static long getFactorial(int n){
-        if(n < 0 || n > 20)
-            throw new IllegalArgumentException("Invalid argument. N must be between 0 and 20");
-                    
+        
+        if (n < 0 || n > 20)
+            throw new IllegalArgumentException("Invalid argument. N must be between 0 and 20"); 
+        
         if(n==0 || n==1)
             return 1; //kết thúc sớm nếu nhận những đầu vào đặc biệt
         
-        long product = 1; //tích nhân dồn
-        for (int i=2; i<=n; i++)
-            product *= i;
-        return product;
+        return n * getFactorial(n - 1); //công thức đệ quy
     }
 }
